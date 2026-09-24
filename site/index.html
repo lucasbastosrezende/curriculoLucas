@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lucas Bastos Rezende — Desenvolvedor · C# · JavaScript/TypeScript · Python · Porto Velho, RO">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Lucas Bastos Rezende dos Santos</title>
+<link href="./fonts/fonts.css" rel="stylesheet">
+<style>
+html,body{margin:0;background:#fbfaf7;color:#1f1e1c;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1f1e1c;text-decoration:underline;text-decoration-color:#c9c4b8;text-underline-offset:3px}
+a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
+::selection{background:#f1e2c6}
+</style>
+</helmet>
+<div style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.6;padding:clamp(40px,8vw,88px) 22px 64px">
+  <main style="max-width:680px;margin:0 auto">
+
+    <h1 style="font-size:32px;font-weight:600;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em">Lucas Bastos Rezende dos Santos</h1>
+    <div style="color:#6b675f;margin-bottom:18px">Desenvolvedor back-end · C#, Python e JavaScript/TypeScript · Porto Velho, RO</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px 18px;font-size:16px;margin-bottom:8px">
+      <a href="mailto:lucas.bastos.rezende@hotmail.com" title="Clique para copiar">lucas.bastos.rezende@hotmail.com</a>
+      <a href="https://www.linkedin.com/in/lucasbastosrezende/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/lucasbastosrezende" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/lucasbas_._/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <div style="font-size:14px;color:#6b675f;margin-bottom:44px">
+      Escrever pelo
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Gmail</a> ·
+      <a href="https://outlook.live.com/mail/0/deeplink/compose?to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Outlook</a>
+    </div>
+
+    <p style="margin:0 0 18px;text-wrap:pretty">Oi, sou o Lucas. Fui estagiário por cerca de dois anos no Tribunal de Contas do Estado de Rondônia, trabalhando com C# no back-end. Hoje sou estagiário de desenvolvimento na Secretaria Municipal de Economia (SEMEC) de Porto Velho e curso Engenharia da Computação na UNISAPIENS.</p>
+    <p style="margin:0 0 18px;text-wrap:pretty">Fora do trabalho eu gosto de fazer coisas que as pessoas usam de verdade. Meu projeto mais longo é o TK (TocaChat), um chat com chamadas de voz e vídeo que uso junto de amigos. Ele roda em meu servidor, dentro do Docker.</p>
+    <p style="margin:0 0 18px;text-wrap:pretty">Também já fiz um app para a Prefeitura de Porto Velho, um transcritor de reuniões que funciona sem internet e o meu TCC, que dá uma sobrevida à impressoras velhas dando a elas uma nova vida e novas funcionalidades.</p>
+    <p style="margin:0 0 48px;text-wrap:pretty">Ultimamente ando mexendo bastante com IA rodando no próprio computador, sem API paga: transcrição com Whisper, OCR para meus agentes e modelos de linguagem via Ollama.</p>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Competências técnicas</h2>
+    <p style="margin:0 0 18px;text-wrap:pretty">Trabalho com arquitetura MVC, APIs REST e bancos relacionais (PostgreSQL com PostGIS, MySQL e SQLite), além de Docker e Git no dia a dia. No front-end uso JavaScript e TypeScript com React e React Native, e tenho projetos em Next.js.</p>
+    <p style="margin:0 0 18px;text-wrap:pretty">No back-end já desenvolvi em C# e Flask, sempre na mesma estrutura de rotas, controllers, models e migrations. Por isso me adapto rápido a frameworks novos: começo lendo o código que já existe e sigo o padrão do projeto.</p>
+    <p style="margin:0 0 48px;text-wrap:pretty">Minha experiência está concentrada em sistemas de gestão pública e georreferenciamento. Também já trabalhei com suporte e instalação de redes e tenho o certificado CCNA: Introduction to Networks, da Cisco.</p>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">No GitHub</h2>
+    <p style="margin:0 0 16px;color:#4a4740;text-wrap:pretty">{{ ghSentence }}</p>
+    <div style="border:1px solid #e3dfd6;border-radius:6px;background:#fff;padding:16px 16px 12px;margin-bottom:10px;overflow-x:auto">
+      <div style="min-width:600px">
+        <div style="display:grid;grid-template-columns:28px repeat({{ weekCount }},minmax(0,1fr));gap:3px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b675f;height:15px;margin-bottom:4px">
+          <span></span>
+          <sc-for list="{{ monthLabels }}" as="m" hint-placeholder-count="12">
+            <span style="grid-column:{{ m.col }};white-space:nowrap">{{ m.label }}</span>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:3px">
+          <div style="display:grid;grid-template-rows:repeat(7,1fr);gap:3px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#6b675f">
+            <span></span><span style="align-self:center">seg</span><span></span><span style="align-self:center">qua</span><span></span><span style="align-self:center">sex</span><span></span>
+          </div>
+          <div style="display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,auto);grid-auto-columns:minmax(0,1fr);gap:3px">
+            <sc-for list="{{ cells }}" as="c" hint-placeholder-count="140">
+              <div title="{{ c.tip }}" style="aspect-ratio:1;border-radius:2px;background:{{ c.bg }};outline:1px solid rgba(27,31,35,.05);outline-offset:-1px"></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b675f">menos
+          <span style="width:10px;height:10px;border-radius:2px;background:#ebedf0"></span>
+          <span style="width:10px;height:10px;border-radius:2px;background:#9be9a8"></span>
+          <span style="width:10px;height:10px;border-radius:2px;background:#40c463"></span>
+          <span style="width:10px;height:10px;border-radius:2px;background:#30a14e"></span>
+          <span style="width:10px;height:10px;border-radius:2px;background:#216e39"></span>mais
+        </div>
+      </div>
+    </div>
+    <sc-if value="{{ hasLast }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0 0 48px;font-size:15px;color:#6b675f">Último commit público: <a href="{{ last.href }}" target="_blank" rel="noopener noreferrer">{{ last.msg }}</a> em {{ last.repo }}, {{ last.when }}.</p>
+    </sc-if>
+    <sc-if value="{{ noLast }}" hint-placeholder-val="{{ true }}">
+      <div style="height:38px"></div>
+    </sc-if>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">Experiência</h2>
+    <div style="display:grid;gap:22px;margin-bottom:48px">
+      <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="3">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><strong style="font-weight:600">{{ j.title }}</strong><span style="color:#6b675f;font-size:16px">{{ j.when }}</span></div>
+          <div style="color:#4a4740">{{ j.org }}</div>
+          <div style="font-size:16.5px;color:#4a4740;margin-top:4px;text-wrap:pretty">{{ j.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">Formação e certificados</h2>
+    <div style="display:grid;gap:22px;margin-bottom:48px">
+      <sc-for list="{{ edu }}" as="j" hint-placeholder-count="1">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><strong style="font-weight:600">{{ j.title }}</strong><span style="color:#6b675f;font-size:16px">{{ j.when }}</span></div>
+          <div style="color:#4a4740">{{ j.org }}</div>
+          <div style="font-size:16.5px;color:#4a4740;margin-top:4px;text-wrap:pretty">{{ j.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">Projetos</h2>
+    <div style="display:grid;gap:28px;margin-bottom:48px">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+            <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ true }}"><a href="{{ p.link }}" target="_blank" rel="noopener noreferrer" style="font-weight:600">{{ p.name }}</a></sc-if>
+            <sc-if value="{{ p.noLink }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600">{{ p.name }}</strong></sc-if>
+            <span style="color:#6b675f;font-size:15px">{{ p.note }}</span>
+          </div>
+          <p style="margin:4px 0 6px;font-size:16.5px;color:#34322d;text-wrap:pretty">{{ p.text }}</p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#6b675f">{{ p.stack }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Ferramentas</h2>
+    <p style="margin:0 0 48px;font-size:16.5px;color:#34322d;text-wrap:pretty">C#, .NET, Python (Flask), Node.js (Express), HTML, CSS, Bootstrap, JavaScript, TypeScript, React, React Native, Next.js. PostgreSQL/PostGIS, MySQL, SQLite (com FTS5), Redis. Docker e Docker Compose, Git, Linux e Windows. Já mexi também com Kotlin, C++ (JNI), WebRTC, LiveKit, Socket.IO, GeoServer, Leaflet e OpenLayers. IA local: faster-whisper, Ollama e OCR. Estudando Ruby on Rails.</p>
+
+    <div style="border-top:1px solid #e3dfd6;padding-top:18px;font-size:15px;color:#6b675f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>Se quiser conversar, o melhor jeito é por e-mail: <a href="mailto:lucas.bastos.rezende@hotmail.com" title="Clique para copiar">lucas.bastos.rezende@hotmail.com</a> (<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Gmail</a>, <a href="https://outlook.live.com/mail/0/deeplink/compose?to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Outlook</a>).</span>
+      <span>Atualizado em setembro de 2026</span>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const USER='lucasbastosrezende';
+const LV=['#ebedf0','#9be9a8','#40c463','#30a14e','#216e39'];
+const MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const fmt=d=>{const[y,m,dd]=d.split('-');return `${+dd} de ${MES[+m-1]}`;};
+const rel=iso=>{const s=(Date.now()-new Date(iso))/1000; if(s<3600) return 'há '+Math.max(1,Math.round(s/60))+' min'; if(s<86400) return 'há '+Math.round(s/3600)+' h'; const d=Math.round(s/86400); return d===1?'ontem':'há '+d+' dias';};
+class Component extends DCLogic {
+  state={days:null,total:null,err:false,last:null};
+  componentDidMount(){ this.load(); }
+  async load(){
+    try{ const r=await fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`); if(!r.ok) throw 0; const j=await r.json(); this.setState({days:j.contributions||[],total:j.total?(j.total.lastYear??Object.values(j.total)[0]):null}); }catch(e){ this.setState({err:true}); }
+    try{ const r=await fetch(`https://api.github.com/users/${USER}/events/public?per_page=30`); if(!r.ok) throw 0; const j=await r.json(); const e=j.find(x=>x.type==='PushEvent'&&/^[\w.-]+\/[\w.-]+$/.test(x.repo&&x.repo.name)&&/^[0-9a-f]{7,40}$/.test(x.payload&&x.payload.head)); if(!e) return;
+      let msg=((e.payload.commits||[]).slice(-1)[0]||{}).message;
+      if(!msg&&e.payload.head){ const c=await fetch(`https://api.github.com/repos/${e.repo.name}/commits/${e.payload.head}`).then(r=>r.ok?r.json():null); msg=c&&c.commit&&c.commit.message; }
+      if(!msg) return;
+      this.setState({last:{msg:String(msg).split('\n')[0].slice(0,140),repo:e.repo.name.replace(USER+'/',''),when:rel(e.created_at),href:'https://github.com/'+e.repo.name+'/commit/'+e.payload.head}}); }catch(e){}
+  }
+  renderVals(){
+    const s=this.state, days=s.days||[];
+    let cells=[], monthLabels=[], weekCount=53;
+    if(days.length){ const pad=new Date(days[0].date+'T12:00:00').getDay(); const all=[...Array(pad).fill(null),...days]; weekCount=Math.ceil(all.length/7); let lastM=-1;
+      all.forEach((d,i)=>{ if(!d){cells.push({bg:'transparent',tip:''});return;} const col=Math.floor(i/7); const m=+d.date.split('-')[1];
+        if(i%7===0&&m!==lastM){ if(col<weekCount-1) monthLabels.push({label:MES[m-1],col:String(col+2)}); lastM=m; }
+        cells.push({bg:LV[d.level]||LV[0],tip:(d.count?d.count+(d.count>1?' contribuições':' contribuição'):'nenhuma contribuição')+' em '+fmt(d.date)}); });
+    } else for(let i=0;i<371;i++) cells.push({bg:'#f1efe9',tip:''});
+    const total=s.total??days.reduce((a,d)=>a+d.count,0); const active=days.filter(d=>d.count>0).length;
+    const ghSentence = days.length ? `${total} contribuições nos últimos 12 meses, em ${active} dias diferentes. Boa parte vem de repositórios privados, então os projetos em si nem sempre aparecem públicos.` : (s.err?'Não consegui carregar o gráfico agora, mas ele está no meu perfil do GitHub.':'Carregando as contribuições do GitHub…');
+    return {
+      cells, monthLabels, weekCount:String(weekCount), ghSentence,
+      hasLast:!!s.last, noLast:!s.last, last:s.last||{},
+      jobs:[
+        {title:'Estagiário de Desenvolvimento de Sistemas',org:'Secretaria Municipal de Economia (SEMEC), Prefeitura de Porto Velho',when:'set de 2025 – atual',desc:'Desenvolvimento web com HTML, CSS e JavaScript, mapas com Leaflet e colaboração no app NotaDASI (abaixo).'},
+        {title:'Estágio em Desenvolvimento de Sistemas',org:'Tribunal de Contas do Estado de Rondônia (TCE-RO)',when:'dez de 2022 – dez de 2024',desc:'Back-end em C# para sistemas do setor público, no padrão MVC e com banco de dados relacional.'},
+        {title:'Analista de Suporte de Redes',org:'Advocacia Ferreira, meio período',when:'jan de 2021 – set de 2022',desc:'Instalação de rede, serviços e sistemas de rede e suporte técnico.'}
+      ],
+      edu:[
+        {title:'Engenharia da Computação',org:'UNISAPIENS (Faculdade Sapiens), Porto Velho',when:'2021 – 2026',desc:'Onde aprendi HTML, CSS, JavaScript e redes de computadores. TCC: Impressão Automatizada (abaixo).'},
+        {title:'CCNA: Introduction to Networks',org:'Cisco',when:'jul de 2024',desc:'Certificado em redes de computadores.'}
+      ],
+      projects:[
+        {name:'TocaChat',note:'repositório privado',hasLink:false,noLink:true,link:'',text:'Chat com grupos, chamadas de voz e vídeo, compartilhamento de tela e um caderno de notas que várias pessoas editam ao mesmo tempo. O back-end é Flask com SocketIO e SQLite, na frente tem um gateway em Node que cuida do HTTPS. Coloquei um servidor LiveKit para as chamadas em grupo e um serviço que tira o ruído do microfone. Tem app Android e uma versão desktop em C++. A API tem mais de 60 rotas REST, todas checando permissão, e as chamadas já foram testadas com 8 pessoas ao mesmo tempo. As notas usam merge de três vias para ninguém perder o que escreveu.',stack:'Python · Flask · SocketIO · SQLite · Node · WebRTC · LiveKit · Redis · Docker · Kotlin · C++'},
+        {name:'NotaDASI',note:'com a equipe da DASI',hasLink:true,noLink:false,link:'https://github.com/DevFLeo/NotaDASI',text:'App em React Native para a Prefeitura de Porto Velho. Lista as competências de cada setor e mostra tudo num mapa mental. A busca é feita em C++ e chamada pelo app via JNI, e o mesmo código roda no navegador.',stack:'React Native · TypeScript · C++ · Kotlin · Python'},
+        {name:'Transcritor pt-BR',note:'',hasLink:true,noLink:false,link:'https://github.com/lucasbastosrezende/transcricaoDeReuniao',text:'Transcreve gravações de reunião sem mandar nada para a internet. Separa quem falou, gera resumo e legenda e deixa buscar em tudo que já foi transcrito. Tem fila de tarefas, API REST com token e exporta em 13 formatos.',stack:'Python · faster-whisper · FFmpeg · numpy · SQLite FTS5'},
+        {name:'Inglês Brabo',note:'',hasLink:true,noLink:false,link:'https://github.com/lucasbastosrezende/aprender-ingles-brabo',text:'Um mascote que fica flutuando na tela do Windows e explica o inglês que aparece nela ou que você pergunta em voz alta. OCR, modelo de linguagem, voz e reconhecimento de fala rodam tudo no próprio PC, sem API paga.',stack:'Python · PySide · Ollama · faster-whisper · Tesseract · Piper'},
+        {name:'Painel Kalshi',note:'',hasLink:true,noLink:false,link:'https://github.com/lucasbastosrezende/dinheiro-kalshi',text:'Painel de mercados de previsão sobre Bitcoin. Calcula a probabilidade de cada contrato, mede a calibração do modelo com Brier score e só sai do modo de teste quando o modelo passa na validação.',stack:'Node.js · JavaScript · SQLite'},
+        {name:'Impressão Automatizada',note:'TCC',hasLink:true,noLink:false,link:'https://github.com/lucasbastosrezende/impressoraAutomatizada',text:'A pessoa manda o arquivo pelo celular, escolhe as páginas, paga no Pix e a impressora USB do computador imprime. Pensado para papelaria pequena.',stack:'Python · Flask · Mercado Pago · pdf.js'},
+        {name:'FinGuia',note:'TCC em equipe',hasLink:true,noLink:false,link:'https://github.com/DevFLeo/FinGuia',text:'Trabalho de conclusão feito em grupo.',stack:''},
+        {name:'Dados geoespaciais',note:'',hasLink:false,noLink:true,link:'',text:'Trabalho com camadas em GeoJSON, PostGIS e GeoServer, e mapas na web com Leaflet e OpenLayers.',stack:'PostGIS · GeoServer · Leaflet · OpenLayers'}
+      ]
+    };
+  }
+}
+</script>
+<script>
+// Clique em link mailto: copia o e-mail em vez de abrir o cliente de e-mail
+(function(){
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(ok,fail){
+      var t=document.createElement('textarea'); t.value=text; t.setAttribute('readonly','');
+      t.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(t); t.select();
+      try{ document.execCommand('copy')?ok():fail(); }catch(e){ fail(e); } finally{ t.remove(); }
+    });
+  }
+  var toast, timer;
+  function show(msg){
+    if(!toast){ toast=document.createElement('div'); toast.setAttribute('role','status');
+      toast.style.cssText="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1f1e1c;color:#fbfaf7;font:15px 'Source Serif 4',Georgia,serif;padding:8px 14px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:opacity .2s;opacity:0;pointer-events:none;z-index:9999";
+      document.body.appendChild(toast); }
+    toast.textContent=msg; toast.style.opacity='1'; clearTimeout(timer);
+    timer=setTimeout(function(){ toast.style.opacity='0'; },1800);
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[href^="mailto:"]'); if(!a) return;
+    ev.preventDefault();
+    var email=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+    copy(email).then(function(){ show('E-mail copiado: '+email); },function(){ window.location.href=a.href; });
+  });
+})();
+</script>
+</body>
+</html>

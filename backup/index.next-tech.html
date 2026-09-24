@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lucas Bastos Rezende — Desenvolvedor Full Stack Júnior · C# · JavaScript/TypeScript · Python · Porto Velho, RO">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Lucas Bastos Rezende — Desenvolvedor Full Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0d0d0b;color:#ecebe4;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+*{box-sizing:border-box}
+a{color:#ecebe4;text-decoration:none}
+a:hover{color:#e8b04b}
+::selection{background:#e8b04b;color:#0d0d0b}
+@keyframes blink{50%{opacity:0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(57,211,83,.55)}70%{box-shadow:0 0 0 8px rgba(57,211,83,0)}100%{box-shadow:0 0 0 0 rgba(57,211,83,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes cellIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif;min-height:100vh;background:#0d0d0b;color:#ecebe4">
+
+  <nav style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,5vw,64px);background:rgba(13,13,11,.85);backdrop-filter:blur(10px);border-bottom:1px solid #22221e;flex-wrap:wrap">
+    <a href="#topo" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;display:flex;align-items:center;gap:10px">
+      <span style="width:28px;height:28px;border:1px solid #ecebe4;display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:17px;letter-spacing:0">L</span>LUCAS BASTOS
+    </a>
+    <div style="display:flex;gap:clamp(12px,2.5vw,28px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap">
+      <a href="#aderencia" style="color:#9a998f">Aderência</a>
+      <a href="#atividade" style="color:#9a998f">Atividade</a>
+      <a href="#experiencia" style="color:#9a998f">Experiência</a>
+      <a href="#projetos" style="color:#9a998f">Projetos</a>
+      <a href="#stack" style="color:#9a998f">Stack</a>
+      <a href="#contato" style="color:#e8b04b">Contato</a>
+    </div>
+  </nav>
+
+  <header id="topo" style="padding:clamp(48px,8vw,104px) clamp(20px,5vw,64px) 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:end;border-bottom:1px solid #22221e">
+    <div style="animation:rise .7s ease both">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9a998f;margin-bottom:26px">
+        <span style="width:8px;height:8px;border-radius:50%;background:#39d353;animation:pulse 2s infinite"></span>Aberto a vagas CLT · Porto Velho, RO
+      </div>
+      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,128px);line-height:.92;letter-spacing:-.02em;margin:0">Lucas Bastos<br><em style="color:#e8b04b">Rezende</em></h1>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,1.2vw,15px);color:#ecebe4;margin:28px 0 14px">Desenvolvedor Full Stack Júnior · C# · JavaScript/TypeScript · Python</div>
+      <p style="font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#c9c8bf;max-width:580px;margin:0;text-wrap:pretty">Cerca de dois anos de desenvolvimento back-end em C# no Tribunal de Contas do Estado de Rondônia. Nos meus projetos, construo e mantenho sistemas completos em produção — MVC, APIs RESTful, banco relacional e Docker, do requisito ao deploy e à correção de bugs. Estudante de Engenharia da Computação na UNISAPIENS.</p>
+      <div style="display:flex;gap:10px;margin-top:32px;flex-wrap:wrap">
+        <a href="mailto:lucas.bastos.rezende@hotmail.com" style="padding:13px 20px;background:#ecebe4;color:#0d0d0b;font-weight:500;font-size:15px;border-radius:2px">Enviar e-mail</a>
+        <a href="https://www.linkedin.com/in/lucasbastosrezende/" target="_blank" style="padding:13px 20px;border:1px solid #3a3a34;font-size:15px;border-radius:2px">LinkedIn ↗</a>
+        <a href="https://github.com/lucasbastosrezende" target="_blank" style="padding:13px 20px;border:1px solid #3a3a34;font-size:15px;border-radius:2px">GitHub ↗</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#2a2a25;border:1px solid #2a2a25;animation:rise .7s .12s ease both">
+      <sc-for list="{{ heroFacts }}" as="f" hint-placeholder-count="4">
+        <div style="background:#12120f;padding:22px 22px 20px">
+          <div style="font-family:'Instrument Serif',serif;font-size:clamp(36px,4vw,48px);line-height:1;color:{{ f.color }}">{{ f.n }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#9a998f;margin-top:10px;line-height:1.45">{{ f.l }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </header>
+
+  <section id="aderencia" style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);border-bottom:1px solid #22221e">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">01 — ADERÊNCIA À VAGA</span>
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:14px 0 12px">Sistemas de gestão pública, <em>em produção</em></h2>
+    <p style="font-size:16.5px;line-height:1.6;color:#9a998f;max-width:720px;margin:0 0 36px;text-wrap:pretty">Full Stack Júnior/Pleno · Next Tech Ecosystem · Porto Velho, presencial. Cada requisito da vaga com a evidência correspondente.</p>
+    <div style="display:grid;border-top:1px solid #2a2a25">
+      <sc-for list="{{ fitRows }}" as="r" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 32px;padding:20px 0;border-bottom:1px solid #2a2a25;align-items:baseline">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="font-size:17px;font-weight:500">{{ r.req }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding:3px 8px;border:1px solid {{ r.color }};color:{{ r.color }};border-radius:2px">{{ r.level }}</span>
+          </div>
+          <div style="grid-column:span 2;min-width:0;font-size:15px;line-height:1.6;color:#c9c8bf;text-wrap:pretty">{{ r.ev }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;margin:48px 0 16px">Como eu trabalho</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:#22221e;border:1px solid #22221e">
+      <sc-for list="{{ traits }}" as="t" hint-placeholder-count="5">
+        <div style="background:#0d0d0b;padding:22px">
+          <div style="font-family:'Instrument Serif',serif;font-size:24px;line-height:1.15;margin-bottom:10px">{{ t.t }}</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#9a998f;text-wrap:pretty">{{ t.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="atividade" style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);border-bottom:1px solid #22221e">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">02 — ATIVIDADE NO GITHUB</span>
+        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:14px 0 0">Código todo dia, <em>ao vivo</em></h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9a998f">
+        <span style="width:7px;height:7px;border-radius:50%;background:{{ liveDot }}"></span>{{ liveLabel }}
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:1px;background:#2a2a25;border:1px solid #2a2a25;margin-bottom:24px">
+      <sc-for list="{{ ghStats }}" as="g" hint-placeholder-count="4">
+        <div style="background:#0d0d0b;padding:20px 22px">
+          <div style="font-family:'Instrument Serif',serif;font-size:42px;line-height:1">{{ g.n }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#9a998f;margin-top:8px;letter-spacing:.03em">{{ g.l }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="border:1px solid #2a2a25;background:#10100d;border-radius:4px;padding:clamp(16px,2.5vw,28px)">
+      <div style="overflow-x:auto">
+        <div style="min-width:640px">
+          <div style="display:grid;grid-template-columns:32px repeat({{ weekCount }},minmax(0,1fr));gap:3px;margin-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9a998f;height:14px">
+            <span></span>
+            <sc-for list="{{ monthLabels }}" as="m" hint-placeholder-count="12">
+              <span style="grid-column:{{ m.col }};white-space:nowrap">{{ m.label }}</span>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:3px">
+            <div style="display:grid;grid-template-rows:repeat(7,1fr);gap:3px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#9a998f">
+              <span></span><span style="align-self:center">Seg</span><span></span><span style="align-self:center">Qua</span><span></span><span style="align-self:center">Sex</span><span></span>
+            </div>
+            <div style="display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,auto);grid-auto-columns:minmax(0,1fr);gap:3px">
+              <sc-for list="{{ cells }}" as="c" hint-placeholder-count="140">
+                <div title="{{ c.tip }}" onMouseEnter="{{ c.hover }}" style="aspect-ratio:1;border-radius:2px;background:{{ c.bg }};outline:1px solid {{ c.ring }};outline-offset:-1px;animation:cellIn .4s ease both;animation-delay:{{ c.delay }}"></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9a998f">
+        <span style="color:#ecebe4;min-height:18px">{{ hoverLabel }}</span>
+        <div style="display:flex;align-items:center;gap:4px">Menos
+          <span style="width:11px;height:11px;border-radius:2px;background:#1c1c18"></span>
+          <span style="width:11px;height:11px;border-radius:2px;background:#0e4429"></span>
+          <span style="width:11px;height:11px;border-radius:2px;background:#006d32"></span>
+          <span style="width:11px;height:11px;border-radius:2px;background:#26a641"></span>
+          <span style="width:11px;height:11px;border-radius:2px;background:#39d353"></span>Mais
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px;margin-top:24px">
+      <div style="border:1px solid #2a2a25;background:#10100d;border-radius:4px;padding:20px 22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;margin-bottom:14px">Últimos commits públicos</div>
+        <sc-if value="{{ hasEvents }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid">
+            <sc-for list="{{ events }}" as="e" hint-placeholder-count="5">
+              <a href="{{ e.href }}" target="_blank" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:11px 0;border-top:1px solid #22221e;color:#ecebe4">
+                <span style="font-size:14px;line-height:1.45;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ e.msg }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6f6e66;white-space:nowrap">{{ e.when }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#39d353">{{ e.repo }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6f6e66;text-align:right">{{ e.n }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noEvents }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:14px;line-height:1.6;color:#9a998f">{{ eventsMsg }}</div>
+        </sc-if>
+      </div>
+      <div style="border:1px solid #2a2a25;background:#10100d;border-radius:4px;padding:20px 22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;margin-bottom:14px">Contribuições por dia da semana</div>
+        <div style="display:grid;gap:10px">
+          <sc-for list="{{ weekdayBars }}" as="w" hint-placeholder-count="7">
+            <div style="display:grid;grid-template-columns:36px minmax(0,1fr) 44px;gap:12px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px">
+              <span style="color:#9a998f">{{ w.d }}</span>
+              <div style="height:10px;background:#1c1c18;border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ w.pct }};background:#26a641;border-radius:2px;transition:width .8s ease"></div></div>
+              <span style="color:#ecebe4;text-align:right">{{ w.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);border-bottom:1px solid #22221e">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">03 — EXPERIÊNCIA &amp; FORMAÇÃO</span>
+    <div style="display:grid;border-top:1px solid #2a2a25;margin-top:28px">
+      <sc-for list="{{ timeline }}" as="e" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px 40px;padding:28px 0;border-bottom:1px solid #2a2a25">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9a998f">{{ e.when }}</div>
+          <div style="grid-column:span 2;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,36px);line-height:1.08">{{ e.title }}</div>
+            <div style="font-size:15px;color:#e8b04b;margin:6px 0 10px">{{ e.org }}</div>
+            <div style="font-size:15.5px;line-height:1.6;color:#9a998f;max-width:680px;text-wrap:pretty">{{ e.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="projetos" style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);border-bottom:1px solid #22221e">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">04 — PROJETOS EM DESTAQUE</span>
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:14px 0 40px">O que eu construí</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;padding-bottom:48px;border-bottom:1px solid #2a2a25;margin-bottom:8px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:#6f6e66;text-transform:uppercase">01 · Tempo real · repositório privado</div>
+        <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5.5vw,72px);line-height:.95;margin:12px 0 10px">TocaChat</h3>
+        <div style="font-size:15px;color:#e8b04b;margin-bottom:18px">Autor · back-end, infraestrutura e clientes</div>
+        <p style="font-size:16.5px;line-height:1.65;color:#c9c8bf;margin:0 0 22px;text-wrap:pretty">Plataforma de comunicação auto-hospedada em produção: chat, chamadas de voz e vídeo, cofre de conhecimento colaborativo e assistente de IA. Back-end em Flask + SocketIO, gateway Node.js com TLS automático e clientes Web, Android e desktop.</p>
+        <div style="display:grid;border-top:1px solid #2a2a25">
+          <sc-for list="{{ tocaHighlights }}" as="h" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:20px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid #2a2a25;font-size:14.5px;line-height:1.55;color:#c9c8bf"><span style="font-family:'IBM Plex Mono',monospace;color:#e8b04b">+</span><span style="text-wrap:pretty">{{ h }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border:1px solid #2a2a25;background:#12120f;border-radius:4px;padding:22px;align-self:start">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;margin-bottom:18px">Arquitetura em produção</div>
+        <div style="display:grid;gap:8px">
+          <sc-for list="{{ archLayers }}" as="layer" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;align-items:stretch">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;padding-top:12px">{{ layer.label }}</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px">
+                <sc-for list="{{ layer.nodes }}" as="node" hint-placeholder-count="3">
+                  <div style="padding:10px 12px;border:1px solid #2a2a25;background:#0d0d0b;border-radius:3px">
+                    <div style="font-size:13px;font-weight:500">{{ node.name }}</div>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#9a998f;margin-top:3px">{{ node.tech }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:20px">
+          <sc-for list="{{ tocaStack }}" as="s" hint-placeholder-count="8">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 8px;border:1px solid #3a3a34;border-radius:2px;color:#c9c8bf">{{ s }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <sc-for list="{{ featured }}" as="p" hint-placeholder-count="5">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px 48px;padding:40px 0;border-bottom:1px solid #2a2a25">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:#6f6e66;text-transform:uppercase">{{ p.num }} · {{ p.kind }}</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4vw,48px);line-height:1;margin:10px 0 8px">{{ p.name }}</h3>
+          <div style="font-size:14.5px;color:#e8b04b;margin-bottom:14px">{{ p.role }}</div>
+          <sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ p.link }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9a998f">{{ p.linkLabel }} ↗</a>
+          </sc-if>
+        </div>
+        <div style="grid-column:span 2;min-width:0">
+          <p style="font-size:16px;line-height:1.65;color:#c9c8bf;margin:0 0 16px;max-width:720px;text-wrap:pretty">{{ p.desc }}</p>
+          <div style="display:grid;gap:8px;margin-bottom:18px;max-width:720px">
+            <sc-for list="{{ p.highlights }}" as="h" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:14.5px;line-height:1.55;color:#9a998f"><span style="font-family:'IBM Plex Mono',monospace;color:#e8b04b">+</span><span style="text-wrap:pretty">{{ h }}</span></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ p.stack }}" as="s" hint-placeholder-count="4">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 8px;border:1px solid #2a2a25;border-radius:2px;color:#c9c8bf">{{ s }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6e66;text-transform:uppercase;margin:48px 0 16px">Outros projetos</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#22221e;border:1px solid #22221e">
+      <sc-for list="{{ others }}" as="o" hint-placeholder-count="4">
+        <a href="{{ o.href }}" target="_blank" style="background:#0d0d0b;padding:22px;display:flex;flex-direction:column;gap:8px;color:#ecebe4">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6f6e66;text-transform:uppercase;letter-spacing:.06em">{{ o.kind }}</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.05">{{ o.name }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#9a998f;text-wrap:pretty">{{ o.desc }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="stack" style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);border-bottom:1px solid #22221e">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">05 — STACK</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px;margin-top:32px">
+      <sc-for list="{{ stackGroups }}" as="g" hint-placeholder-count="6">
+        <div style="border-top:1px solid #3a3a34;padding-top:16px">
+          <div style="font-weight:500;font-size:17px;margin-bottom:12px">{{ g.t }}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 14px">
+            <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="4">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9a998f">{{ it }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer id="contato" style="padding:clamp(64px,9vw,112px) clamp(20px,5vw,64px) 40px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8b04b;letter-spacing:.08em">06 — CONTATO</span>
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,8vw,104px);line-height:.95;margin:18px 0 36px;letter-spacing:-.02em">Vamos<br><em>conversar?</em></h2>
+    <div style="display:grid;border-top:1px solid #2a2a25;max-width:760px">
+      <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4">
+        <a href="{{ c.href }}" target="_blank" style="display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid #2a2a25;color:#ecebe4">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:#6f6e66;text-transform:uppercase">{{ c.k }}</span>
+          <span style="font-size:clamp(16px,2vw,20px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.v }}</span>
+          <span style="color:#e8b04b;font-family:'IBM Plex Mono',monospace">↗</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:80px;padding-top:22px;border-top:1px solid #22221e;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#56554e">
+      <span>© 2026 Lucas Bastos Rezende</span><span>Porto Velho · Rondônia · Brasil</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const USER = 'lucasbastosrezende';
+const EMAIL = 'lucas.bastos.rezende@hotmail.com';
+const LEVEL_BG = ['#1c1c18','#0e4429','#006d32','#26a641','#39d353'];
+const MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const DIAS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const FEATURED = [
+  { name:'NotaDASI', kind:'Gestão pública', role:'Colaborador · Prefeitura de Porto Velho (SEMEC)', link:'https://github.com/DevFLeo/NotaDASI',
+    desc:'Aplicativo de consulta do levantamento de competências e adesão ao SIG da Prefeitura de Porto Velho. O mesmo código roda no Android e no navegador.',
+    highlights:['Busca normalizada (sem acento, sem caixa) em C++ exposta via JNI, com fallback em JavaScript.','Mapa mental Departamento → Setor → Competência com pan, zoom e posições persistidas.','Importador de planilha xlsx em Python que gera os dados tipados em TypeScript.'],
+    stack:['React Native','TypeScript','C++','JNI / NDK','Kotlin','Vite','Python'] },
+  { name:'Transcritor pt-BR', kind:'IA local', role:'Autor', link:'https://github.com/lucasbastosrezende/transcricaoDeReuniao',
+    desc:'Transcrição de reuniões em português 100% offline — sem chave de API, cota ou custo. Servidor web com fila de tarefas, eventos ao vivo e API REST.',
+    highlights:['faster-whisper large-v3-turbo com beam search, Silero VAD e filtros contra alucinação.','Separação de falantes sem PyTorch: MFCC + clusterização aglomerativa em numpy.','Histórico com SQLite FTS5, 13 formatos de saída, CLI e API com token.'],
+    stack:['Python','faster-whisper','FFmpeg','numpy','SQLite FTS5','SSE'] },
+  { name:'Impressão Automatizada', kind:'TCC', role:'Autor · TCC', link:'https://github.com/lucasbastosrezende/impressoraAutomatizada',
+    desc:'Transforma uma impressora USB comum em serviço acessível pelo navegador: o cliente envia o arquivo, escolhe as opções, paga via Pix e o servidor imprime.',
+    highlights:['API Flask que recebe arquivos, gera cobrança e dispara a impressão.','Pix dinâmico via Mercado Pago com verificação de pagamento, e Pix estático como alternativa.','Impressão silenciosa com SumatraPDF; arquivo temporário apagado em bloco finally.'],
+    stack:['Python','Flask','Mercado Pago','SumatraPDF','pdf.js'] },
+  { name:'WebGIS & dados geoespaciais', kind:'Competência', role:'Visualização e integração de dados espaciais', link:'',
+    desc:'Trabalho com camadas geográficas, GeoJSON, visualização de dados espaciais e integração com APIs.',
+    highlights:['PostGIS e GeoServer como base de camadas; Leaflet e OpenLayers na visualização.','Padrões OGC e APIs REST para interoperabilidade entre sistemas governamentais.'],
+    stack:['PostGIS','GeoServer','Leaflet','OpenLayers','GeoJSON','OGC'] },
+  { name:'FinGuia', kind:'TCC', role:'Colaborador · TCC de formação', link:'https://github.com/DevFLeo/FinGuia',
+    desc:'Trabalho de conclusão de curso desenvolvido em equipe.', highlights:[], stack:[] }
+];
+const OTHERS = [
+  { name:'Inglês Brabo', kind:'IA local · desktop', desc:'Mascote nativo no Windows que lê a tela e explica inglês em voz alta, com OCR, LLM e voz locais.', href:'https://github.com/lucasbastosrezende/aprender-ingles-brabo' },
+  { name:'Dashboard Kalshi', kind:'Dados · Node.js', desc:'Painel de mercados de previsão com modelo probabilístico, calibração Brier e paper trading.', href:'https://github.com/lucasbastosrezende/dinheiro-kalshi' },
+  { name:'AceNetwork', kind:'Web3 · 2021–2022', desc:'Servidor de Minecraft com economia on-chain, NFTs de território e API em Node.js.', href:'https://github.com/CruzAPI/acenetwork' },
+  { name:'MTDEXPOBRE', kind:'Web · privado', desc:'Landing de plataforma de mentoria com assinatura e comunidade interna.', href:'https://github.com/'+USER }
+];
+const ARCH = [
+  { label:'Clientes', nodes:[['SPA Web','Vanilla JS · PWA'],['Android','Kotlin · Compose'],['Desktop','C++ Win32']] },
+  { label:'Borda', nodes:[['Gateway','Node · Express · TLS']] },
+  { label:'API', nodes:[['Flask + SocketIO','60+ rotas REST'],['Agente IA','Groq · Gemini']] },
+  { label:'Mídia', nodes:[['LiveKit SFU','self-hosted'],['Denoise','DeepFilterNet3']] },
+  { label:'Dados', nodes:[['SQLite','WAL'],['Redis','PSRPC'],['Uploads','até 10 GB']] }
+];
+const fmtDate = d => { const [y,m,dd]=d.split('-'); return `${+dd} ${MESES[+m-1]} ${y}`; };
+const rel = iso => { const s=(Date.now()-new Date(iso))/1000; if(s<3600) return Math.max(1,Math.round(s/60))+' min'; if(s<86400) return Math.round(s/3600)+' h'; return Math.round(s/86400)+' d'; };
+
+class Component extends DCLogic {
+  state = { days:null, total:null, err:false, events:null, evErr:false, hover:null, updated:null };
+  componentDidMount(){ this.load(); this.iv=setInterval(()=>this.load(),5*60*1000); }
+  componentWillUnmount(){ clearInterval(this.iv); }
+  async load(){
+    try{
+      const r=await fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`);
+      if(!r.ok) throw 0; const j=await r.json();
+      this.setState({days:j.contributions||[], total:j.total?(j.total.lastYear??Object.values(j.total)[0]):null, err:false, updated:new Date()});
+    }catch(e){ this.setState({err:true}); }
+    // GitHub API sem token: 60 req/h por IP. Cache local + ETag (304 não conta no limite)
+    // + mensagens de commit cacheadas por SHA, pra não estourar o limite.
+    const EV_KEY='gh-events-v2', MSG_KEY='gh-commit-msgs-v1';
+    const lsGet=k=>{ try{ return JSON.parse(localStorage.getItem(k)); }catch(_){ return null; } };
+    const lsSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(_){} };
+    const cached=lsGet(EV_KEY);
+    const msgs=lsGet(MSG_KEY)||{};
+    const build=raw=>raw.filter(e=>e.type==='PushEvent').slice(0,6).map(e=>{ const p=e.payload||{}; const cs=p.commits||[]; const branch=(p.ref||'').replace('refs/heads/','');
+      return { head:p.head, repoFull:e.repo.name, msg:cs.length?cs[cs.length-1].message.split('\n')[0]:(p.head&&msgs[p.head])||'', repo:e.repo.name.replace(USER+'/',''), when:rel(e.created_at), n:branch?'branch '+branch:'', href:'https://github.com/'+e.repo.name+(p.head?'/commit/'+p.head:'') }; });
+    const show=list=>this.setState({events:list.map(b=>({...b,msg:b.msg||'push em '+b.repo})), evErr:false});
+    if(cached&&cached.raw) show(build(cached.raw));
+    try{
+      const r=await fetch(`https://api.github.com/users/${USER}/events/public?per_page=60`, cached&&cached.etag?{headers:{'If-None-Match':cached.etag}}:{});
+      let raw;
+      if(r.status===304&&cached) raw=cached.raw;
+      else if(r.ok){ raw=await r.json(); lsSet(EV_KEY,{etag:r.headers.get('ETag'),raw:raw.filter(e=>e.type==='PushEvent').slice(0,10)}); }
+      else throw 0;
+      const base=build(raw); show(base);
+      let changed=false;
+      const full=await Promise.all(base.map(async b=>{ if(b.msg||!b.head) return b; try{
+        const c=await fetch(`https://api.github.com/repos/${b.repoFull}/commits/${b.head}`).then(r=>r.ok?r.json():null);
+        const m=c&&c.commit?c.commit.message.split('\n')[0]:''; if(m){ msgs[b.head]=m; changed=true; } return {...b,msg:m}; }catch(_){ return b; } }));
+      if(changed) lsSet(MSG_KEY,msgs);
+      show(full);
+    }catch(e){ if(!(cached&&cached.raw)) this.setState({evErr:true}); }
+  }
+  renderVals(){
+    const s=this.state; const days=s.days||[];
+    let cells=[], monthLabels=[], weekCount=53;
+    if(days.length){
+      const pad=new Date(days[0].date+'T12:00:00').getDay();
+      const all=[...Array(pad).fill(null),...days];
+      weekCount=Math.ceil(all.length/7);
+      let lastM=-1;
+      all.forEach((d,i)=>{ const col=Math.floor(i/7);
+        if(!d){ cells.push({bg:'transparent',ring:'transparent',tip:'',delay:'0s',hover:()=>{}}); return; }
+        const m=+d.date.split('-')[1]; if(i%7===0||i===pad){ if(m!==lastM && (i%7===0)){ if(col<weekCount-1) monthLabels.push({label:MESES[m-1],col:String(col+2)}); lastM=m; } }
+        const tip=(d.count?d.count+' contribuiç'+(d.count>1?'ões':'ão'):'Nenhuma contribuição')+' em '+fmtDate(d.date);
+        const on=s.hover===d.date;
+        cells.push({ bg:LEVEL_BG[d.level]||LEVEL_BG[0], ring:on?'#ecebe4':'rgba(255,255,255,.03)', tip, delay:(col*0.012).toFixed(3)+'s', hover:()=>this.setState({hover:d.date}) });
+      });
+    } else {
+      for(let i=0;i<371;i++) cells.push({bg:'#161613',ring:'transparent',tip:'',delay:'0s',hover:()=>{}});
+    }
+    const counts=days.map(d=>d.count);
+    const total=s.total ?? counts.reduce((a,b)=>a+b,0);
+    let streak=0; for(let i=days.length-1;i>=0;i--){ if(days[i].count>0) streak++; else if(i===days.length-1) continue; else break; }
+    let best=0, run=0; days.forEach(d=>{ run=d.count>0?run+1:0; best=Math.max(best,run); });
+    const active=counts.filter(c=>c>0).length;
+    const maxDay=days.reduce((m,d)=>d.count>m.count?d:m,{count:0,date:''});
+    const wd=[0,0,0,0,0,0,0]; days.forEach(d=>wd[new Date(d.date+'T12:00:00').getDay()]+=d.count);
+    const wdMax=Math.max(1,...wd);
+    const weekdayBars=[1,2,3,4,5,6,0].map(i=>({d:DIAS[i],v:days.length?String(wd[i]):'—',pct:(wd[i]/wdMax*100).toFixed(1)+'%'}));
+    const loaded=days.length>0; const dash='—';
+    const hd=days.find(d=>d.date===s.hover);
+    const hoverLabel = hd ? (hd.count?hd.count+' contribuiç'+(hd.count>1?'ões':'ão'):'Nenhuma contribuição')+' em '+fmtDate(hd.date) : (loaded?'passe o mouse sobre um dia':(s.err?'não foi possível carregar agora':'carregando contribuições…'));
+    const upd=s.updated?String(s.updated.getHours()).padStart(2,'0')+':'+String(s.updated.getMinutes()).padStart(2,'0'):'';
+    return {
+      cells, monthLabels, weekCount:String(weekCount), weekdayBars, hoverLabel,
+      liveDot: s.err?'#e87b6b':(loaded?'#39d353':'#6f6e66'),
+      liveLabel: s.err?'offline — ver no GitHub':(loaded?'ao vivo · atualizado '+upd:'conectando ao GitHub…'),
+      ghStats:[
+        {n:loaded?String(total):dash,l:'contribuições no último ano'},
+        {n:loaded?String(active):dash,l:'dias com código'},
+        {n:loaded?streak+(streak===1?' dia':' dias'):dash,l:'sequência atual'},
+        {n:loaded?String(maxDay.count):dash,l:loaded&&maxDay.date?'recorde · '+fmtDate(maxDay.date):'recorde em um dia'}
+      ],
+      hasEvents: !!(s.events&&s.events.length), noEvents: !(s.events&&s.events.length), events: s.events||[],
+      eventsMsg: s.evErr?'Não foi possível carregar agora. Veja em github.com/'+USER+'.':(s.events?'Sem commits públicos recentes — a maior parte do trabalho está em repositórios privados.':'carregando…'),
+      fitRows:[
+        {req:'Arquitetura MVC',level:'+1 ano',color:'#39d353',ev:'Cerca de dois anos de back-end em C# no TCE-RO; nos projetos próprios, Flask com rotas, templates e camada de dados separados (TocaChat, Impressão Automatizada).'},
+        {req:'API RESTful',level:'forte',color:'#39d353',ev:'TocaChat com 60+ rotas REST documentadas e verificação de permissão em cada uma; Transcritor com API autenticada por token; integração com APIs externas (Mercado Pago, Kalshi, GitHub).'},
+        {req:'PostgreSQL / banco relacional',level:'sólido',color:'#39d353',ev:'PostgreSQL/PostGIS em dados geoespaciais, MySQL em C#, SQLite com WAL, índices e migrações seguras em produção.'},
+        {req:'Docker',level:'sólido',color:'#39d353',ev:'TocaChat inteiro em Docker Compose — Flask, gateway, LiveKit, Redis e workers — com limites de CPU, profiles e deploy por pipeline.'},
+        {req:'JavaScript / TypeScript',level:'sólido',color:'#39d353',ev:'SPA de ~4 mil linhas em JavaScript puro (TocaChat); NotaDASI em TypeScript com React Native e alvo web via Vite.'},
+        {req:'Next.js',level:'em evolução',color:'#e8b04b',ev:'Projetos em Next.js no GitHub e base em React/TypeScript da graduação; integração front ↔ back feita em todos os projetos full stack.'},
+        {req:'Ruby on Rails',level:'em estudo',color:'#e8b04b',ev:'Ainda sem Rails em produção. Rails segue o mesmo MVC + REST que já uso em C# e Flask — rotas, controllers, models e migrações —, então o caminho é ler o padrão existente e seguir ele.'},
+        {req:'Git',level:'forte',color:'#39d353',ev:'16 repositórios, branches, merge e colaboração em repositórios de equipe (NotaDASI, FinGuia, AceNetwork); atividade diária visível logo abaixo.'},
+        {req:'Setor público & georreferenciamento',level:'diferencial',color:'#39d353',ev:'Sistemas no Tribunal de Contas (TCE-RO) e app para a SEMEC/Prefeitura de Porto Velho; WebGIS com PostGIS, GeoServer, Leaflet e GeoJSON.'},
+        {req:'Sustentação em produção',level:'forte',color:'#39d353',ev:'Mantenho o TocaChat no ar: bugs de concorrência achados em teste de carga e corrigidos, investigação de CPU sob carga, correções com o sistema rodando.'}
+      ],
+      traits:[
+        {t:'Só digo que funciona depois de testar',d:'No TocaChat, cada etapa foi marcada como validada só depois de teste real — chamada com pessoas, gravação completa, 8 participantes simultâneos.'},
+        {t:'Documento o que ainda está frágil',d:'Os READMEs listam limitações e pontos fracos conhecidos em vez de esconder — o mesmo que reportar bug fora do próprio escopo.'},
+        {t:'Sigo o padrão antes de propor outro',d:'No NotaDASI, mudanças respeitam as duas implementações que precisam concordar (C++ e JS) e o formato da planilha de origem.'},
+        {t:'Investigo a causa, não o sintoma',d:'Bug do worker de áudio resolvido lendo o código do SDK até achar que eventos não eram emitidos para participantes já conectados.'},
+        {t:'Mudo de contexto sem perder o fio',d:'Circulo entre stacks diferentes — C#, Python, Node, React Native, C++ — e entre produtos distintos no mesmo período.'}
+      ],
+      heroFacts:[
+        {n:'~2 anos',l:'C# no Tribunal de Contas do Estado de Rondônia',color:'#ecebe4'},
+        {n:'MVC',l:'+ APIs RESTful, PostgreSQL e Docker',color:'#ecebe4'},
+        {n:loaded?String(total):'…',l:'contribuições no GitHub no último ano',color:'#39d353'},
+        {n:'2',l:'órgãos públicos: TCE-RO e Prefeitura de Porto Velho',color:'#ecebe4'}
+      ],
+      timeline:[
+        {when:'~2 anos',title:'Desenvolvedor C#',org:'Tribunal de Contas do Estado de Rondônia (TCE-RO)',desc:'Desenvolvimento back-end em C# para sistemas do setor público, com banco de dados relacional.'},
+        {when:'Em andamento',title:'Engenharia da Computação',org:'UNISAPIENS',desc:'Graduação; aprofundamento em JavaScript, React e TypeScript, base para o front-end em Next.js.'},
+        {when:'Colaboração',title:'Sistemas para a gestão pública',org:'Prefeitura de Porto Velho · SEMEC',desc:'Colaboração no NotaDASI, app React Native + TypeScript de acompanhamento da adesão dos setores ao SIG municipal (georreferenciamento), usado pela Divisão de Geoprocessamento.'}
+      ],
+      tocaHighlights:['API REST com 60+ rotas e eventos SocketIO; verificação de permissão em todas as operações.','SQLite em WAL com migrações seguras, índices para sync incremental e soft delete auditável.','Chamadas com mesh P2P e LiveKit SFU self-hosted atrás da mesma UI, com fallback automático; testado com 8 participantes.','Edição simultânea de notas com merge de três vias, histórico com diff e papéis de acesso.','Agente de IA que usa as mesmas rotas REST da interface — mesma validação e permissões.','Docker Compose, Redis, TLS automático via Let\'s Encrypt e deploy por pipeline.'],
+      tocaStack:['Python','Flask','Socket.IO','SQLite','Node.js','WebRTC','LiveKit','Redis','Docker','Kotlin','C++'],
+      archLayers: ARCH.map(L=>({label:L.label,nodes:L.nodes.map(([name,tech])=>({name,tech}))})),
+      featured: FEATURED.map((p,i)=>({...p,num:String(i+2).padStart(2,'0'),hasLink:!!p.link,linkLabel:(p.link||'').replace('https://','')})),
+      others: OTHERS,
+      stackGroups:[
+        {t:'Back-end',items:['C#','MVC','APIs RESTful','Python / Flask','Node.js / Express','SocketIO','Ruby on Rails — em estudo']},
+        {t:'Dados',items:['PostgreSQL / PostGIS','MySQL','SQLite / FTS5','Redis','MongoDB']},
+        {t:'Front-end & mobile',items:['JavaScript','TypeScript','React','Next.js','React Native','Kotlin']},
+        {t:'Geo',items:['GeoServer','Leaflet','OpenLayers','GeoJSON','OGC']},
+        {t:'Infra',items:['Docker','Git','CI/CD','Let\'s Encrypt','Linux / Windows']},
+        {t:'Práticas',items:['Clean Architecture','SOLID','Design Patterns','TDD']}
+      ],
+      contacts:[{k:'E-mail',v:EMAIL,href:'mailto:'+EMAIL},{k:'LinkedIn',v:'in/lucasbastosrezende',href:'https://www.linkedin.com/in/lucasbastosrezende/'},{k:'GitHub',v:'lucasbastosrezende',href:'https://github.com/'+USER},{k:'Instagram',v:'@lucasbas_._',href:'https://www.instagram.com/lucasbas_._/'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

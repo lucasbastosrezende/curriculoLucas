@@ -1,0 +1,57 @@
+services:
+  web:
+    build: .
+    image: curriculo-caddy:latest
+    container_name: curriculo-web
+    restart: unless-stopped
+    ports:
+      - "8444:8444"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./site:/srv:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      - DOMAIN=${DOMAIN:-curriculolucas.duckdns.org}
+      - DUCKDNS_TOKEN=${DUCKDNS_TOKEN:?defina DUCKDNS_TOKEN no .env}
+    user: "10001:10001"
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid,nodev
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    pids_limit: 64
+    cpus: 0.5
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Keeps the DuckDNS record pointing at the current public IP (residential IPs change).
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: curriculo-duckdns
+    restart: unless-stopped
+    environment:
+      - SUBDOMAINS=curriculolucas
+      - TOKEN=${DUCKDNS_TOKEN:?defina DUCKDNS_TOKEN no .env}
+      - TZ=America/Sao_Paulo
+      - LOG_FILE=false
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 32
+    cpus: 0.25
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+volumes:
+  caddy_data:
+  caddy_config:
