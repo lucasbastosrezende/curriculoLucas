@@ -21,7 +21,22 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
 </style>
 </helmet>
 <div style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.6;padding:clamp(40px,8vw,88px) 22px 64px">
-  <main style="max-width:680px;margin:0 auto">
+
+  <sc-if value="{{ showSide }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Tópicos" style="position:fixed;top:clamp(40px,8vw,88px);left:{{ sideLeft }};width:180px;font-size:14px;line-height:1.4">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b675f;margin-bottom:12px">Neste currículo</div>
+      <div style="display:grid;gap:2px;border-left:1px solid #e3dfd6">
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="8">
+          <a href="#{{ t.id }}" onClick="{{ t.go }}" aria-current="{{ t.current }}" style="display:block;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-weight:{{ t.weight }};text-decoration:none">{{ t.label }}</a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ scrolled }}" hint-placeholder-val="{{ false }}">
+        <a href="#topo" onClick="{{ goTop }}" style="display:inline-block;margin:16px 0 0 15px;font-size:13px;color:#6b675f;text-decoration:none">↑ Voltar ao topo</a>
+      </sc-if>
+    </nav>
+  </sc-if>
+
+  <main id="topo" style="max-width:680px;margin:0 auto">
 
     <h1 style="font-size:32px;font-weight:600;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em">Lucas Bastos Rezende dos Santos</h1>
     <div style="color:#6b675f;margin-bottom:18px">Desenvolvedor back-end · C#, Python e JavaScript/TypeScript · Porto Velho, RO</div>
@@ -31,22 +46,36 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
       <a href="https://github.com/lucasbastosrezende" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.instagram.com/lucasbas_._/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
-    <div style="font-size:14px;color:#6b675f;margin-bottom:44px">
+    <div style="font-size:14px;color:#6b675f;margin-bottom:28px">
       Escrever pelo
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Gmail</a> ·
       <a href="https://outlook.live.com/mail/0/deeplink/compose?to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Outlook</a>
     </div>
 
+    <sc-if value="{{ showInline }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Tópicos" style="border-top:1px solid #e3dfd6;border-bottom:1px solid #e3dfd6;padding:12px 0;margin-bottom:40px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;font-size:15px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b675f">Tópicos</span>
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="8">
+          <a href="#{{ t.id }}" onClick="{{ t.go }}" style="white-space:nowrap">{{ t.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+
+    <section id="sobre" style="scroll-margin-top:24px">
     <p style="margin:0 0 18px;text-wrap:pretty">Oi, sou o Lucas. Fui estagiário por cerca de dois anos no Tribunal de Contas do Estado de Rondônia, trabalhando com C# no back-end. Hoje sou estagiário de desenvolvimento na Secretaria Municipal de Economia (SEMEC) de Porto Velho e curso Engenharia da Computação na UNISAPIENS.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">Fora do trabalho eu gosto de fazer coisas que as pessoas usam de verdade. Meu projeto mais longo é o TK (TocaChat), um chat com chamadas de voz e vídeo que uso junto de amigos. Ele roda em meu servidor, dentro do Docker.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">Também já fiz um app para a Prefeitura de Porto Velho, um transcritor de reuniões que funciona sem internet e o meu TCC, que dá uma sobrevida à impressoras velhas dando a elas uma nova vida e novas funcionalidades.</p>
     <p style="margin:0 0 48px;text-wrap:pretty">Ultimamente ando mexendo bastante com IA rodando no próprio computador, sem API paga: transcrição com Whisper, OCR para meus agentes e modelos de linguagem via Ollama.</p>
+    </section>
 
+    <section id="competencias" style="scroll-margin-top:24px">
     <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Competências técnicas</h2>
     <p style="margin:0 0 18px;text-wrap:pretty">Trabalho com arquitetura MVC, APIs REST e bancos relacionais (PostgreSQL com PostGIS, MySQL e SQLite), além de Docker e Git no dia a dia. No front-end uso JavaScript e TypeScript com React e React Native, e tenho projetos em Next.js.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">No back-end já desenvolvi em C# e Flask, sempre na mesma estrutura de rotas, controllers, models e migrations. Por isso me adapto rápido a frameworks novos: começo lendo o código que já existe e sigo o padrão do projeto.</p>
     <p style="margin:0 0 48px;text-wrap:pretty">Minha experiência está concentrada em sistemas de gestão pública e georreferenciamento. Também já trabalhei com suporte e instalação de redes e tenho o certificado CCNA: Introduction to Networks, da Cisco.</p>
+    </section>
 
+    <section id="github" style="scroll-margin-top:24px">
     <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">No GitHub</h2>
     <p style="margin:0 0 16px;color:#4a4740;text-wrap:pretty">{{ ghSentence }}</p>
     <div style="border:1px solid #e3dfd6;border-radius:6px;background:#fff;padding:16px 16px 12px;margin-bottom:10px;overflow-x:auto">
@@ -82,7 +111,9 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
     <sc-if value="{{ noLast }}" hint-placeholder-val="{{ true }}">
       <div style="height:38px"></div>
     </sc-if>
+    </section>
 
+    <section id="experiencia" style="scroll-margin-top:24px">
     <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">Experiência</h2>
     <div style="display:grid;gap:22px;margin-bottom:48px">
       <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="3">
@@ -93,7 +124,9 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
         </div>
       </sc-for>
     </div>
+    </section>
 
+    <section id="formacao" style="scroll-margin-top:24px">
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin:0 0 14px"><h2 style="font-size:20px;font-weight:600;margin:0">Formação e certificados</h2><a href="./certificados.html" style="font-size:16px">Ver todos os certificados →</a></div>
     <div style="display:grid;gap:22px;margin-bottom:48px">
       <sc-for list="{{ edu }}" as="j" hint-placeholder-count="1">
@@ -104,7 +137,9 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
         </div>
       </sc-for>
     </div>
+    </section>
 
+    <section id="projetos" style="scroll-margin-top:24px">
     <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">Projetos</h2>
     <div style="display:grid;gap:28px;margin-bottom:48px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
@@ -119,26 +154,68 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
         </div>
       </sc-for>
     </div>
+    </section>
 
+    <section id="ferramentas" style="scroll-margin-top:24px">
     <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Ferramentas</h2>
     <p style="margin:0 0 48px;font-size:16.5px;color:#34322d;text-wrap:pretty">C#, .NET, Python (Flask), Node.js (Express), HTML, CSS, Bootstrap, JavaScript, TypeScript, React, React Native, Next.js. PostgreSQL/PostGIS, MySQL, SQLite (com FTS5), Redis. Docker e Docker Compose, Git, Linux e Windows. Já mexi também com Kotlin, C++ (JNI), WebRTC, LiveKit, Socket.IO, GeoServer, Leaflet e OpenLayers. IA local: faster-whisper, Ollama e OCR. Estudando Ruby on Rails.</p>
+    </section>
 
-    <div style="border-top:1px solid #e3dfd6;padding-top:18px;font-size:15px;color:#6b675f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <footer id="contato" style="border-top:1px solid #e3dfd6;padding-top:18px;font-size:15px;color:#6b675f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;scroll-margin-top:24px">
       <span>Se quiser conversar, o melhor jeito é por e-mail: <a href="mailto:lucas.bastos.rezende@hotmail.com" title="Clique para copiar">lucas.bastos.rezende@hotmail.com</a> (<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Gmail</a>, <a href="https://outlook.live.com/mail/0/deeplink/compose?to=lucas.bastos.rezende@hotmail.com" target="_blank" rel="noopener noreferrer">Outlook</a>).</span>
       <span>Atualizado em setembro de 2026</span>
-    </div>
+    </footer>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;sideIndex&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Índice&quot;},&quot;inlineIndex&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;só em telas pequenas&quot;,&quot;sempre&quot;,&quot;nunca&quot;],&quot;default&quot;:&quot;só em telas pequenas&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Índice&quot;}}">
 const USER='lucasbastosrezende';
 const LV=['#ebedf0','#9be9a8','#40c463','#30a14e','#216e39'];
 const MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const TOC=[['sobre','Sobre'],['competencias','Competências'],['github','No GitHub'],['experiencia','Experiência'],['formacao','Formação'],['projetos','Projetos'],['ferramentas','Ferramentas'],['contato','Contato']];
 const fmt=d=>{const[y,m,dd]=d.split('-');return `${+dd} de ${MES[+m-1]}`;};
 const rel=iso=>{const s=(Date.now()-new Date(iso))/1000; if(s<3600) return 'há '+Math.max(1,Math.round(s/60))+' min'; if(s<86400) return 'há '+Math.round(s/3600)+' h'; const d=Math.round(s/86400); return d===1?'ontem':'há '+d+' dias';};
 class Component extends DCLogic {
-  state={days:null,total:null,err:false,last:null};
-  componentDidMount(){ this.load(); }
+  state={days:null,total:null,err:false,last:null,active:'sobre',w:window.innerWidth,scrolled:false};
+  componentDidMount(){
+    this.load();
+    this.onScroll=()=>{
+      const y=window.scrollY, h=window.innerHeight;
+      let a=TOC[0][0];
+      if(y+h>=document.documentElement.scrollHeight-4) a=TOC[TOC.length-1][0];
+      else for(const [id] of TOC){ const el=document.getElementById(id); if(el&&el.getBoundingClientRect().top<h*0.35) a=id; }
+      const sc=y>300;
+      if(a!==this.state.active||sc!==this.state.scrolled) this.setState({active:a,scrolled:sc});
+    };
+    this.onResize=()=>{ this.setState({w:window.innerWidth}); this.onScroll(); };
+    window.addEventListener('scroll',this.onScroll,{passive:true});
+    window.addEventListener('resize',this.onResize);
+    this.onScroll();
+    // Clique em link mailto: copia o e-mail em vez de abrir o cliente de e-mail
+    this.onMail=ev=>{
+      const a=ev.target.closest&&ev.target.closest('a[href^="mailto:"]'); if(!a) return;
+      ev.preventDefault();
+      const email=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+      const copy=t=>navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(t):new Promise((ok,fail)=>{const x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(x);x.select();try{document.execCommand('copy')?ok():fail();}catch(e){fail(e);}finally{x.remove();}});
+      copy(email).then(()=>this.toast('E-mail copiado: '+email),()=>{window.location.href=a.href;});
+    };
+    document.addEventListener('click',this.onMail);
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll',this.onScroll); window.removeEventListener('resize',this.onResize); document.removeEventListener('click',this.onMail); }
+  toast(msg){
+    if(!this._t){ const t=document.createElement('div'); t.setAttribute('role','status');
+      t.style.cssText="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1f1e1c;color:#fbfaf7;font:15px 'Source Serif 4',Georgia,serif;padding:8px 14px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:opacity .2s;opacity:0;pointer-events:none;z-index:9999";
+      document.body.appendChild(t); this._t=t; }
+    this._t.textContent=msg; this._t.style.opacity='1'; clearTimeout(this._tt);
+    this._tt=setTimeout(()=>{this._t.style.opacity='0';},1800);
+  }
+  go(id,e){
+    if(e) e.preventDefault();
+    const el=document.getElementById(id); if(!el) return;
+    const top=id==='topo'?0:el.getBoundingClientRect().top+window.scrollY-24;
+    window.scrollTo({top,behavior:'smooth'});
+    history.replaceState(null,'','#'+id);
+  }
   async load(){
     try{ const r=await fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`); if(!r.ok) throw 0; const j=await r.json(); this.setState({days:j.contributions||[],total:j.total?(j.total.lastYear??Object.values(j.total)[0]):null}); }catch(e){ this.setState({err:true}); }
     try{ const r=await fetch(`https://api.github.com/users/${USER}/events/public?per_page=30`); if(!r.ok) throw 0; const j=await r.json(); const e=j.find(x=>x.type==='PushEvent'&&/^[\w.-]+\/[\w.-]+$/.test(x.repo&&x.repo.name)&&/^[0-9a-f]{7,40}$/.test(x.payload&&x.payload.head)); if(!e) return;
@@ -149,6 +226,11 @@ class Component extends DCLogic {
   }
   renderVals(){
     const s=this.state, days=s.days||[];
+    const side=this.props.sideIndex ?? true, inlineMode=this.props.inlineIndex ?? 'só em telas pequenas';
+    const wide=s.w>=1120, showSide=side&&wide;
+    const showInline=inlineMode==='sempre'||(inlineMode==='só em telas pequenas'&&!showSide);
+    const sideLeft=`max(24px, calc(50% - 340px - 244px))`;
+    const toc=TOC.map(([id,label])=>{const on=s.active===id; return {id,label,current:on?'true':'false',bar:on?'#8a3b12':'transparent',color:on?'#1f1e1c':'#6b675f',weight:on?'600':'400',go:e=>this.go(id,e)};});
     let cells=[], monthLabels=[], weekCount=53;
     if(days.length){ const pad=new Date(days[0].date+'T12:00:00').getDay(); const all=[...Array(pad).fill(null),...days]; weekCount=Math.ceil(all.length/7); let lastM=-1;
       all.forEach((d,i)=>{ if(!d){cells.push({bg:'transparent',tip:''});return;} const col=Math.floor(i/7); const m=+d.date.split('-')[1];
@@ -158,6 +240,7 @@ class Component extends DCLogic {
     const total=s.total??days.reduce((a,d)=>a+d.count,0); const active=days.filter(d=>d.count>0).length;
     const ghSentence = days.length ? `${total} contribuições nos últimos 12 meses, em ${active} dias diferentes. Boa parte vem de repositórios privados, então os projetos em si nem sempre aparecem públicos.` : (s.err?'Não consegui carregar o gráfico agora, mas ele está no meu perfil do GitHub.':'Carregando as contribuições do GitHub…');
     return {
+      toc, showSide, showInline, sideLeft, scrolled:s.scrolled, goTop:e=>this.go('topo',e),
       cells, monthLabels, weekCount:String(weekCount), ghSentence,
       hasLast:!!s.last, noLast:!s.last, last:s.last||{},
       jobs:[
@@ -182,33 +265,6 @@ class Component extends DCLogic {
     };
   }
 }
-</script>
-<script>
-// Clique em link mailto: copia o e-mail em vez de abrir o cliente de e-mail
-(function(){
-  function copy(text){
-    if(navigator.clipboard&&window.isSecureContext) return navigator.clipboard.writeText(text);
-    return new Promise(function(ok,fail){
-      var t=document.createElement('textarea'); t.value=text; t.setAttribute('readonly','');
-      t.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(t); t.select();
-      try{ document.execCommand('copy')?ok():fail(); }catch(e){ fail(e); } finally{ t.remove(); }
-    });
-  }
-  var toast, timer;
-  function show(msg){
-    if(!toast){ toast=document.createElement('div'); toast.setAttribute('role','status');
-      toast.style.cssText="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1f1e1c;color:#fbfaf7;font:15px 'Source Serif 4',Georgia,serif;padding:8px 14px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:opacity .2s;opacity:0;pointer-events:none;z-index:9999";
-      document.body.appendChild(toast); }
-    toast.textContent=msg; toast.style.opacity='1'; clearTimeout(timer);
-    timer=setTimeout(function(){ toast.style.opacity='0'; },1800);
-  }
-  document.addEventListener('click',function(ev){
-    var a=ev.target.closest&&ev.target.closest('a[href^="mailto:"]'); if(!a) return;
-    ev.preventDefault();
-    var email=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
-    copy(email).then(function(){ show('E-mail copiado: '+email); },function(){ window.location.href=a.href; });
-  });
-})();
 </script>
 </body>
 </html>
