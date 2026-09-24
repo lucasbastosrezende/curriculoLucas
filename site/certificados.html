@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Certificados de Lucas Bastos Rezende dos Santos: trilha de C# e .NET da balta.io, eventos de tecnologia e cursos da Escola de Contas do TCE-RO.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Certificados · Lucas Bastos Rezende dos Santos</title>
+<link href="./fonts/fonts.css" rel="stylesheet">
+<style>
+html,body{margin:0;background:#fbfaf7;color:#1f1e1c;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1f1e1c;text-decoration:underline;text-decoration-color:#c9c4b8;text-underline-offset:3px}
+a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
+::selection{background:#f1e2c6}
+</style>
+</helmet>
+<div style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.6;padding:clamp(40px,8vw,88px) 22px 64px">
+  <main style="max-width:680px;margin:0 auto">
+    <div style="font-size:15px;margin-bottom:28px"><a href="./">← Lucas Bastos Rezende dos Santos</a></div>
+    <h1 style="font-size:32px;font-weight:600;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em">Certificados</h1>
+    <div style="color:#6b675f;margin-bottom:44px;text-wrap:pretty">{{ summary }}</div>
+
+    <sc-for list="{{ years }}" as="y" hint-placeholder-count="3">
+      <section style="margin-bottom:40px">
+        <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">{{ y.year }}</h2>
+        <div style="display:grid">
+          <sc-for list="{{ y.items }}" as="c" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:78px 21px minmax(0,1fr);column-gap:10px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#6b675f;padding-top:5px;text-align:right;white-space:nowrap">{{ c.when }}</div>
+              <div style="position:relative">
+                <div style="position:absolute;left:10px;top:{{ c.lineTop }};bottom:{{ c.lineBottom }};width:1px;background:#e3dfd6"></div>
+                <div style="position:absolute;left:6px;top:10px;width:9px;height:9px;border-radius:50%;background:#fbfaf7;border:1.5px solid #8a3b12"></div>
+              </div>
+              <div style="padding-bottom:22px;min-width:0">
+                <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+                  <div style="flex:1;min-width:0">
+                    <sc-if value="{{ c.hasLink }}" hint-placeholder-val="{{ true }}"><a href="{{ c.href }}" target="_blank" rel="noopener noreferrer" style="font-weight:600;text-wrap:pretty">{{ c.title }}</a></sc-if>
+                    <sc-if value="{{ c.noLink }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;text-wrap:pretty">{{ c.title }}</strong></sc-if>
+                  </div>
+                  <span style="color:#6b675f;font-size:15px;white-space:nowrap;flex-shrink:0">{{ c.note }}</span>
+                </div>
+                <div style="color:#4a4740">{{ c.org }}</div>
+                <sc-if value="{{ c.hasDesc }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:16.5px;color:#4a4740;margin-top:4px;text-wrap:pretty">{{ c.desc }}</div>
+                </sc-if>
+                <sc-if value="{{ c.hasSubs }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:grid;gap:4px;margin-top:8px;padding:10px 14px;border:1px solid #e3dfd6;border-radius:6px;background:#fff">
+                    <sc-for list="{{ c.subs }}" as="s" hint-placeholder-count="3">
+                      <div style="display:flex;justify-content:space-between;gap:12px;font-size:16px;color:#34322d">
+                        <a href="{{ s.href }}" target="_blank" rel="noopener noreferrer" style="text-wrap:pretty">{{ s.title }}</a>
+                        <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#6b675f;white-space:nowrap;padding-top:3px">{{ s.meta }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <div style="border-top:1px solid #e3dfd6;padding-top:18px;font-size:15px;color:#6b675f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>Os códigos de verificação estão em cada PDF.</span>
+      <span style="white-space:nowrap">Atualizado em setembro de 2026</span>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;order&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Mais antigo primeiro&quot;,&quot;Mais recente primeiro&quot;],&quot;default&quot;:&quot;Mais antigo primeiro&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;baltaGrouped&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Agrupar cursos da balta.io&quot;}}">
+const MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const U=f=>'uploads/'+encodeURIComponent(f)+'.pdf';
+const BALTA=[
+  ['2023-05-18','2023-11-14','Fundamentos do C#',12,'Balta 10'],
+  ['2023-11-14','2023-11-14','Fundamentos da Orientação a Objetos',4,'Balta 13'],
+  ['2023-11-14','2023-11-14','Fundamentos do SQL Server',3,'Balta 12'],
+  ['2023-11-14','2023-11-14','Acesso a dados com .NET, C#, Dapper e SQL Server',5,'Balta 11'],
+  ['2023-11-14','2023-11-14','Fundamentos do Entity Framework',4,'Balta 9'],
+  ['2023-11-14','2023-11-15','Fundamentos do ASP.NET 6',8,'Balta 8'],
+  ['2023-11-14','2023-11-15','Aplicando Orientação a Objetos em Projetos Reais com C# 11 e .NET 7',2,'Balta 3'],
+  ['2023-11-15','2023-11-15','Criando APIs com ASP.NET Core 2.0 e Dapper',11,'Balta 1'],
+  ['2023-11-15','2023-11-15','Dominando Injeção de Dependência',3,'Balta 2'],
+  ['2023-11-15','2023-11-15','Refatorando para testes de unidade',2,'Balta 4'],
+  ['2023-11-15','2023-11-15','Modelando Domínios Ricos',4,'Balta 5'],
+  ['2023-11-15','2023-11-15','Fundamentos do Azure, Git, GitHub e DevOps',7,'Balta 6']
+];
+const OTHERS=[
+  {start:'2024-03-25',end:'2024-03-25',title:'Palestras: Anotação de Responsabilidade Técnica, Ética e Certidão de Acervo Técnico',org:'UNISAPIENS, Porto Velho',h:4,file:'certificado 5'},
+  {start:'2024-05-22',end:'2024-05-22',title:'Quando a IA se encontra com a inteligência humana',org:'Escola Superior de Contas (ESCon), TCE-RO · online',desc:'Palestra sobre IA como pressuposto para o Controle Externo Orientado por Dados (CEOD).',h:2,file:'1ae8af69-8daa-4b10-9fcd-b2149560eb7c'},
+  {start:'2024-05-27',end:'2024-05-29',title:'Fórum Nacional: Inovação, Tecnologia e Soluções para o Controle Externo Orientado por Dados',org:'Escola Superior de Contas (ESCon), TCE-RO · online, ao vivo',h:16,file:'d189bfd7-424b-4d7a-b5a7-021fd22638fa'},
+  {start:'2024-07-01',end:'2024-07-01',month:true,title:'CCNA: Introduction to Networks',org:'Cisco',desc:'Certificado em redes de computadores.',h:null,file:null},
+  {start:'2024-10-16',end:'2024-10-18',title:'1ª Conexão Tech.RO + 21ª Semana Nacional de Ciência e Tecnologia',org:'Porto Velho, RO',file:'certificado 1',h:null,
+    subs:[['Palestra: Inteligência Artificial em Desenvolvimento de Produtos','16/10 · 1h','certificado 2'],['Oficina: Robótica Educacional com Lego','17/10 · 4h','certificado 3'],['Mesa-redonda: Os Desafios do Mercado de Tecnologia','18/10 · 2h','certificado 4']],subH:7},
+  {start:'2026-08-31',end:'2026-09-04',title:'Geoprocessamento Aplicado à Gestão da Educação Pública Municipal',org:'Escola Superior de Contas Conselheiro José Renato da Frota Uchôa (TCE-RO)',desc:'Fundamentos de geoprocessamento e uso de dados geoespaciais na gestão da educação.',h:40,file:'d79e22a7-151f-455d-86f8-32eb22a449b6'}
+];
+const p=d=>d.split('-').map(Number);
+const dayMon=d=>{const[,m,dd]=p(d);return dd+' '+MES[m-1];};
+const period=(a,b)=>{ if(a===b) return 'em '+dayMon(a); const[ya,ma]=p(a),[yb,mb]=p(b); return ya!==yb?`de ${dayMon(a)} de ${ya} a ${dayMon(b)} de ${yb}`:`de ${dayMon(a)} a ${dayMon(b)}`; };
+class Component extends DCLogic {
+  renderVals(){
+    const desc=(this.props.order??'Mais antigo primeiro')==='Mais recente primeiro';
+    const grouped=(this.props.baltaGrouped??true);
+    let items=[];
+    const baltaH=BALTA.reduce((a,b)=>a+b[3],0);
+    if(grouped){
+      items.push({start:'2023-05-18',end:'2023-11-15',title:'Trilha de C# e .NET',org:'balta.io',note:BALTA.length+' cursos · '+baltaH+'h',
+        desc:'Do básico de C# até APIs, testes e DevOps, concluída em novembro de 2023.',
+        subs:BALTA.map(b=>({title:b[2],meta:b[3]+'h',href:U(b[4])}))});
+    } else {
+      BALTA.forEach(b=>items.push({start:b[0],end:b[1],title:b[2],org:'balta.io',h:b[3],file:b[4],desc:b[0]!==b[1]?'Curso feito '+period(b[0],b[1])+'.':''}));
+    }
+    OTHERS.forEach(o=>items.push({...o,note:o.h?o.h+'h':(o.subH?o.subs.length+' atividades · '+o.subH+'h':''),
+      desc:o.desc||(o.start!==o.end?'Realizado '+period(o.start,o.end)+'.':''),
+      subs:o.subs&&o.subs.map(s=>({title:s[0],meta:s[1],href:U(s[2])}))}));
+    items.forEach(i=>{ if(i.h&&!i.note) i.note=i.h+'h'; });
+    items.sort((a,b)=>a.end<b.end?-1:a.end>b.end?1:0);
+    if(desc) items.reverse();
+    const byYear=[];
+    items.forEach(i=>{ const y=i.end.slice(0,4); let g=byYear[byYear.length-1]; if(!g||g.year!==y){g={year:y,items:[]};byYear.push(g);}
+      const[,m,d]=p(i.end);
+      g.items.push({when:i.month?MES[m-1]:(d+' '+MES[m-1]),title:i.title,org:i.org,note:i.note||'',desc:i.desc||'',hasDesc:!!i.desc,
+        hasLink:!!i.file,noLink:!i.file,href:i.file?U(i.file):'',subs:i.subs||[],hasSubs:!!(i.subs&&i.subs.length)}); });
+    byYear.forEach(g=>g.items.forEach((it,k)=>{ it.lineTop=k===0?'14px':'0'; it.lineBottom=k===g.items.length-1?'calc(100% - 14px)':'0'; }));
+    const count=BALTA.length+OTHERS.length+3;
+    const hours=baltaH+OTHERS.reduce((a,o)=>a+(o.h||0)+(o.subH||0),0);
+    return {years:byYear,summary:`${count} certificados entre 2023 e 2026, somando ${hours} horas. Começa com a trilha de C# e .NET que fiz na balta.io e segue com eventos de tecnologia e cursos da Escola de Contas do TCE-RO.`};
+  }
+}
+</script>
+</body>
+</html>
