@@ -62,6 +62,7 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
     </sc-if>
 
     <section id="sobre" style="scroll-margin-top:24px">
+    <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Sobre</h2>
     <p style="margin:0 0 18px;text-wrap:pretty">Oi, sou o Lucas. Fui estagiário por cerca de dois anos no Tribunal de Contas do Estado de Rondônia, trabalhando com C# no back-end. Hoje sou estagiário de desenvolvimento na Secretaria Municipal de Economia (SEMEC) de Porto Velho e curso Engenharia da Computação na UNISAPIENS.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">Fora do trabalho eu gosto de fazer coisas que as pessoas usam de verdade. Meu projeto mais longo é o TK (TocaChat), um chat com chamadas de voz e vídeo que uso junto de amigos. Ele roda em meu servidor, dentro do Docker.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">Também já fiz um app para a Prefeitura de Porto Velho, um transcritor de reuniões que funciona sem internet e o meu TCC, que dá uma sobrevida à impressoras velhas dando a elas uma nova vida e novas funcionalidades.</p>
@@ -72,7 +73,7 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
     <h2 style="font-size:20px;font-weight:600;margin:0 0 6px">Competências técnicas</h2>
     <p style="margin:0 0 18px;text-wrap:pretty">Trabalho com arquitetura MVC, APIs REST e bancos relacionais (PostgreSQL com PostGIS, MySQL e SQLite), além de Docker e Git no dia a dia. No front-end uso JavaScript e TypeScript com React e React Native, e tenho projetos em Next.js.</p>
     <p style="margin:0 0 18px;text-wrap:pretty">No back-end já desenvolvi em C# e Flask, sempre na mesma estrutura de rotas, controllers, models e migrations. Por isso me adapto rápido a frameworks novos: começo lendo o código que já existe e sigo o padrão do projeto.</p>
-    <p style="margin:0 0 48px;text-wrap:pretty">Minha experiência está concentrada em sistemas de gestão pública e georreferenciamento. Também já trabalhei com suporte e instalação de redes e tenho o certificado CCNA: Introduction to Networks, da Cisco.</p>
+    <p style="margin:0 0 48px;text-wrap:pretty">Minha experiência está concentrada em sistemas de gestão pública e georreferenciamento. Também já trabalhei com suporte e instalação de redes e tenho os certificados CCNA: Introduction to Networks e CCNA: Switching, Routing, and Wireless Essentials, da Cisco.</p>
     </section>
 
     <section id="github" style="scroll-margin-top:24px">
@@ -250,7 +251,7 @@ class Component extends DCLogic {
       ],
       edu:[
         {title:'Engenharia da Computação',org:'UNISAPIENS (Faculdade Sapiens), Porto Velho',when:'2021 – 2026',desc:'Onde aprendi HTML, CSS, JavaScript e redes de computadores. TCC: Impressão Automatizada (abaixo).'},
-        {title:'CCNA: Introduction to Networks',org:'Cisco',when:'jul de 2024',desc:'Certificado em redes de computadores.'}
+        {title:'CCNA 1 e 2: ITN e SRWE',org:'Cisco Networking Academy · UNISAPIENS',when:'2024',desc:'Introduction to Networks (jul de 2024) e Switching, Routing, and Wireless Essentials (2º semestre de 2024).'}
       ],
       projects:[
         {name:'TocaChat',note:'repositório privado',hasLink:false,noLink:true,link:'',text:'Chat com grupos, chamadas de voz e vídeo, compartilhamento de tela e um caderno de notas que várias pessoas editam ao mesmo tempo. O back-end é Flask com SocketIO e SQLite, na frente tem um gateway em Node que cuida do HTTPS. Coloquei um servidor LiveKit para as chamadas em grupo e um serviço que tira o ruído do microfone. Tem app Android e uma versão desktop em C++. A API tem mais de 60 rotas REST, todas checando permissão, e as chamadas já foram testadas com 8 pessoas ao mesmo tempo. As notas usam merge de três vias para ninguém perder o que escreveu.',stack:'Python · Flask · SocketIO · SQLite · Node · WebRTC · LiveKit · Redis · Docker · Kotlin · C++'},

@@ -21,13 +21,37 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
 </style>
 </helmet>
 <div style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.6;padding:clamp(40px,8vw,88px) 22px 64px">
-  <main style="max-width:680px;margin:0 auto">
+
+  <sc-if value="{{ showSide }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Tópicos" style="position:fixed;top:clamp(40px,8vw,88px);left:{{ sideLeft }};width:180px;font-size:14px;line-height:1.4">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b675f;margin-bottom:12px">Nesta página</div>
+      <div style="display:grid;gap:2px;border-left:1px solid #e3dfd6">
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="3">
+          <a href="#{{ t.id }}" onClick="{{ t.go }}" aria-current="{{ t.current }}" style="display:block;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid {{ t.bar }};color:{{ t.color }};font-weight:{{ t.weight }};text-decoration:none">{{ t.label }}</a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ scrolled }}" hint-placeholder-val="{{ false }}">
+        <a href="#topo" onClick="{{ goTop }}" style="display:inline-block;margin:16px 0 0 15px;font-size:13px;color:#6b675f;text-decoration:none">↑ Voltar ao topo</a>
+      </sc-if>
+    </nav>
+  </sc-if>
+
+  <main id="topo" style="max-width:680px;margin:0 auto">
     <div style="font-size:15px;margin-bottom:28px"><a href="./">← Lucas Bastos Rezende dos Santos</a></div>
     <h1 style="font-size:32px;font-weight:600;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em">Certificados</h1>
-    <div style="color:#6b675f;margin-bottom:44px;text-wrap:pretty">{{ summary }}</div>
+    <div style="color:#6b675f;margin-bottom:28px;text-wrap:pretty">{{ summary }}</div>
+
+    <sc-if value="{{ showInline }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Tópicos" style="border-top:1px solid #e3dfd6;border-bottom:1px solid #e3dfd6;padding:12px 0;margin-bottom:40px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;font-size:15px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b675f">Tópicos</span>
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="3">
+          <a href="#{{ t.id }}" onClick="{{ t.go }}" style="white-space:nowrap">{{ t.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
 
     <sc-for list="{{ years }}" as="y" hint-placeholder-count="3">
-      <section style="margin-bottom:40px">
+      <section id="{{ y.id }}" style="margin-bottom:40px;scroll-margin-top:24px">
         <h2 style="font-size:20px;font-weight:600;margin:0 0 14px">{{ y.year }}</h2>
         <div style="display:grid">
           <sc-for list="{{ y.items }}" as="c" hint-placeholder-count="3">
@@ -73,7 +97,7 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;order&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Mais antigo primeiro&quot;,&quot;Mais recente primeiro&quot;],&quot;default&quot;:&quot;Mais antigo primeiro&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;baltaGrouped&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Agrupar cursos da balta.io&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;order&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Mais antigo primeiro&quot;,&quot;Mais recente primeiro&quot;],&quot;default&quot;:&quot;Mais antigo primeiro&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;baltaGrouped&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Agrupar cursos da balta.io&quot;},&quot;sideIndex&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Índice&quot;},&quot;inlineIndex&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;só em telas pequenas&quot;,&quot;sempre&quot;,&quot;nunca&quot;],&quot;default&quot;:&quot;só em telas pequenas&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Índice&quot;}}">
 const MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 const U=f=>'uploads/'+encodeURIComponent(f)+'.pdf';
 const BALTA=[
@@ -94,7 +118,8 @@ const OTHERS=[
   {start:'2024-03-25',end:'2024-03-25',title:'Palestras: Anotação de Responsabilidade Técnica, Ética e Certidão de Acervo Técnico',org:'UNISAPIENS, Porto Velho',h:4,file:'certificado 5'},
   {start:'2024-05-22',end:'2024-05-22',title:'Quando a IA se encontra com a inteligência humana',org:'Escola Superior de Contas (ESCon), TCE-RO · online',desc:'Palestra sobre IA como pressuposto para o Controle Externo Orientado por Dados (CEOD).',h:2,file:'1ae8af69-8daa-4b10-9fcd-b2149560eb7c'},
   {start:'2024-05-27',end:'2024-05-29',title:'Fórum Nacional: Inovação, Tecnologia e Soluções para o Controle Externo Orientado por Dados',org:'Escola Superior de Contas (ESCon), TCE-RO · online, ao vivo',h:16,file:'d189bfd7-424b-4d7a-b5a7-021fd22638fa'},
-  {start:'2024-07-01',end:'2024-07-01',month:true,title:'CCNA: Introduction to Networks',org:'Cisco',desc:'Certificado em redes de computadores.',h:null,file:null},
+  {start:'2024-07-22',end:'2024-07-22',title:'CCNA: Introduction to Networks (ITN)',org:'Cisco Networking Academy · UNISAPIENS',desc:'Certificado em redes de computadores. Credencial verificável no Credly.',h:null,file:null,url:'https://www.credly.com/badges/275dcc23-a9fb-4016-a52a-7f04bf033433'},
+  {start:'2024-12-01',end:'2024-12-01',when:'2º sem.',title:'CCNA: Switching, Routing, and Wireless Essentials (SRWE)',org:'Cisco Networking Academy · UNISAPIENS',desc:'Segundo módulo do CCNA: switching, roteamento e redes sem fio.',h:null,file:null},
   {start:'2024-10-16',end:'2024-10-18',title:'1ª Conexão Tech.RO + 21ª Semana Nacional de Ciência e Tecnologia',org:'Porto Velho, RO',file:'certificado 1',h:null,
     subs:[['Palestra: Inteligência Artificial em Desenvolvimento de Produtos','16/10 · 1h','certificado 2'],['Oficina: Robótica Educacional com Lego','17/10 · 4h','certificado 3'],['Mesa-redonda: Os Desafios do Mercado de Tecnologia','18/10 · 2h','certificado 4']],subH:7},
   {start:'2026-08-31',end:'2026-09-04',title:'Geoprocessamento Aplicado à Gestão da Educação Pública Municipal',org:'Escola Superior de Contas Conselheiro José Renato da Frota Uchôa (TCE-RO)',desc:'Fundamentos de geoprocessamento e uso de dados geoespaciais na gestão da educação.',h:40,file:'d79e22a7-151f-455d-86f8-32eb22a449b6'}
@@ -103,7 +128,36 @@ const p=d=>d.split('-').map(Number);
 const dayMon=d=>{const[,m,dd]=p(d);return dd+' '+MES[m-1];};
 const period=(a,b)=>{ if(a===b) return 'em '+dayMon(a); const[ya,ma]=p(a),[yb,mb]=p(b); return ya!==yb?`de ${dayMon(a)} de ${ya} a ${dayMon(b)} de ${yb}`:`de ${dayMon(a)} a ${dayMon(b)}`; };
 class Component extends DCLogic {
+  state={active:null,w:window.innerWidth,scrolled:false};
+  componentDidMount(){
+    this.onScroll=()=>{
+      const y=window.scrollY, h=window.innerHeight, els=[...document.querySelectorAll('section[id^="ano-"]')];
+      if(!els.length) return;
+      let a=els[0].id;
+      if(y+h>=document.documentElement.scrollHeight-4) a=els[els.length-1].id;
+      else for(const el of els){ if(el.getBoundingClientRect().top<h*0.35) a=el.id; }
+      const sc=y>300;
+      if(a!==this.state.active||sc!==this.state.scrolled) this.setState({active:a,scrolled:sc});
+    };
+    this.onResize=()=>{ this.setState({w:window.innerWidth}); this.onScroll(); };
+    window.addEventListener('scroll',this.onScroll,{passive:true});
+    window.addEventListener('resize',this.onResize);
+    this.onScroll();
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll',this.onScroll); window.removeEventListener('resize',this.onResize); }
+  go(id,e){
+    if(e) e.preventDefault();
+    const el=document.getElementById(id); if(!el) return;
+    const top=id==='topo'?0:el.getBoundingClientRect().top+window.scrollY-24;
+    window.scrollTo({top,behavior:'smooth'});
+    history.replaceState(null,'','#'+id);
+  }
   renderVals(){
+    const s=this.state;
+    const side=this.props.sideIndex ?? true, inlineMode=this.props.inlineIndex ?? 'só em telas pequenas';
+    const showSide=side&&s.w>=1120;
+    const showInline=inlineMode==='sempre'||(inlineMode==='só em telas pequenas'&&!showSide);
+    const sideLeft=`max(24px, calc(50% - 340px - 244px))`;
     const desc=(this.props.order??'Mais antigo primeiro')==='Mais recente primeiro';
     const grouped=(this.props.baltaGrouped??true);
     let items=[];
@@ -124,12 +178,15 @@ class Component extends DCLogic {
     const byYear=[];
     items.forEach(i=>{ const y=i.end.slice(0,4); let g=byYear[byYear.length-1]; if(!g||g.year!==y){g={year:y,items:[]};byYear.push(g);}
       const[,m,d]=p(i.end);
-      g.items.push({when:i.month?MES[m-1]:(d+' '+MES[m-1]),title:i.title,org:i.org,note:i.note||'',desc:i.desc||'',hasDesc:!!i.desc,
-        hasLink:!!i.file,noLink:!i.file,href:i.file?U(i.file):'',subs:i.subs||[],hasSubs:!!(i.subs&&i.subs.length)}); });
+      g.items.push({when:i.when||(i.month?MES[m-1]:(d+' '+MES[m-1])),title:i.title,org:i.org,note:i.note||'',desc:i.desc||'',hasDesc:!!i.desc,
+        hasLink:!!(i.file||i.url),noLink:!(i.file||i.url),href:i.url||(i.file?U(i.file):''),subs:i.subs||[],hasSubs:!!(i.subs&&i.subs.length)}); });
+    byYear.forEach(g=>{ g.id='ano-'+g.year; });
+    const act=s.active||(byYear[0]&&byYear[0].id);
+    const toc=byYear.map(({id,year,items})=>{const on=act===id; return {id,label:`${year} (${items.length})`,current:on?'true':'false',bar:on?'#8a3b12':'transparent',color:on?'#1f1e1c':'#6b675f',weight:on?'600':'400',go:e=>this.go(id,e)};});
     byYear.forEach(g=>g.items.forEach((it,k)=>{ it.lineTop=k===0?'14px':'0'; it.lineBottom=k===g.items.length-1?'calc(100% - 14px)':'0'; }));
     const count=BALTA.length+OTHERS.length+3;
     const hours=baltaH+OTHERS.reduce((a,o)=>a+(o.h||0)+(o.subH||0),0);
-    return {years:byYear,summary:`${count} certificados entre 2023 e 2026, somando ${hours} horas. Começa com a trilha de C# e .NET que fiz na balta.io e segue com eventos de tecnologia e cursos da Escola de Contas do TCE-RO.`};
+    return {toc,showSide,showInline,sideLeft,scrolled:s.scrolled,goTop:e=>this.go('topo',e),years:byYear,summary:`${count} certificados entre 2023 e 2026, somando ${hours} horas. Começa com a trilha de C# e .NET que fiz na balta.io e segue com eventos de tecnologia e cursos da Escola de Contas do TCE-RO.`};
   }
 }
 </script>
