@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Certificados de Lucas Bastos Rezende dos Santos: trilha de C# e .NET da balta.io, eventos de tecnologia e cursos da Escola de Contas do TCE-RO.">
+<meta name="description" content="Certificados de Lucas Bastos Rezende dos Santos: trilha de C# e .NET da balta.io, CCNA da Cisco, eventos de tecnologia e cursos da Escola de Contas do TCE-RO.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -91,8 +91,8 @@ a:hover{color:#8a3b12;text-decoration-color:#8a3b12}
     </sc-for>
 
     <div style="border-top:1px solid #e3dfd6;padding-top:18px;font-size:15px;color:#6b675f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>Os códigos de verificação estão em cada PDF.</span>
-      <span style="white-space:nowrap">Atualizado em setembro de 2026</span>
+      <span>Os códigos de verificação estão em cada PDF; a credencial do CCNA ITN pode ser conferida no Credly.</span>
+      <span style="white-space:nowrap">Atualizado em outubro de 2026</span>
     </div>
   </main>
 </div>
@@ -164,7 +164,7 @@ class Component extends DCLogic {
     const baltaH=BALTA.reduce((a,b)=>a+b[3],0);
     if(grouped){
       items.push({start:'2023-05-18',end:'2023-11-15',title:'Trilha de C# e .NET',org:'balta.io',note:BALTA.length+' cursos · '+baltaH+'h',
-        desc:'Do básico de C# até APIs, testes e DevOps, concluída em novembro de 2023.',
+        desc:'Do básico de C# e orientação a objetos até APIs com ASP.NET, acesso a dados com Entity Framework e Dapper, testes de unidade e DevOps. Concluída em novembro de 2023.',
         subs:BALTA.map(b=>({title:b[2],meta:b[3]+'h',href:U(b[4])}))});
     } else {
       BALTA.forEach(b=>items.push({start:b[0],end:b[1],title:b[2],org:'balta.io',h:b[3],file:b[4],desc:b[0]!==b[1]?'Curso feito '+period(b[0],b[1])+'.':''}));
@@ -186,7 +186,7 @@ class Component extends DCLogic {
     byYear.forEach(g=>g.items.forEach((it,k)=>{ it.lineTop=k===0?'14px':'0'; it.lineBottom=k===g.items.length-1?'calc(100% - 14px)':'0'; }));
     const count=BALTA.length+OTHERS.length+3;
     const hours=baltaH+OTHERS.reduce((a,o)=>a+(o.h||0)+(o.subH||0),0);
-    return {toc,showSide,showInline,sideLeft,scrolled:s.scrolled,goTop:e=>this.go('topo',e),years:byYear,summary:`${count} certificados entre 2023 e 2026, somando ${hours} horas. Começa com a trilha de C# e .NET que fiz na balta.io e segue com eventos de tecnologia e cursos da Escola de Contas do TCE-RO.`};
+    return {toc,showSide,showInline,sideLeft,scrolled:s.scrolled,goTop:e=>this.go('topo',e),years:byYear,summary:`${count} certificados entre 2023 e 2026, somando ${hours} horas. Começa com a trilha de C# e .NET que fiz na balta.io e segue com os dois módulos do CCNA da Cisco, eventos de tecnologia e cursos da Escola de Contas do TCE-RO.`};
   }
 }
 </script>
